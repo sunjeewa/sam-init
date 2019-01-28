@@ -1,0 +1,15 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Resources:
+  SAMFunction:
+    Properties:
+      CodeUri: s3://sam-bucket-sw/9b9d9609a6aa0c0e8a71d72792475eb0
+      Events:
+        API:
+          Properties:
+            Method: GET
+            Path: /
+          Type: Api
+      Handler: index.handler
+      Runtime: nodejs8.10
+    Type: AWS::Serverless::Function
+Transform: AWS::Serverless-2016-10-31
